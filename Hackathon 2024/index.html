@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Recycling Game</h1>
+    <p>Drag and drop the trash items into the correct bin:</p>
+    <div class="paragraph-container">
+        <p>Recycling</p>
+        <p>Garbage</p>
+        <p>Compost</p>
+    </div>
+
+    <!-- Recycling bins -->
+    <div class="bins">
+        <img id="recycling-bin" src="../images/recycling-bin-image.png" alt="Recycling Bin" class="bin" />
+        <img id="garbage-bin" src="../images/trash-bin-image.png" alt="Garbage Bin" class="bin" />
+        <img id="compost-bin" src="../images/compost-bin-image.png" alt="Compost Bin" class="bin" />
+    </div>
+
+    <!-- Recyclable items -->
+    <div class="items">
+        <div id="points-display">Points: 0</div>
+        <img id="water-bottle" src="../images/water-bottle-image.png" alt="Water Bottle" class="item" draggable="true" />
+        <img id="tin-can" src="../images/tin-can-image.png" alt="Tin Can" class="item" draggable="true" />
+        <img id="plastic-straw" src="../images/plastic-straw-img.png" alt="Plastic Straw" class="item" draggable="true" />
+        <img id="chip-bag" src="../images/chip-bag-image.png" alt="Chip Bag" class="item" draggable="true" />
+        <img id="banana-peel" src="../images/banana-peel-image.png" alt="Banana Peel" class="item" draggable="true" />
+        <img id="apple-core" src="../images/apple-core-image.png" alt="Apple Core" class="item" draggable="true" />
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -28,7 +28,6 @@ p {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 20px;
 }
 
 /* Bin container to hold labels and bins together */
@@ -63,10 +62,8 @@ p {
 
 /* Items container to center the items horizontally */
 .items {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    position: relative; /* So that items can be placed absolutely within it */
+    height: 500px; /* Set height to give room for scattered items */
     margin-bottom: 30px;
 }
 
@@ -75,6 +72,7 @@ p {
     width: 80px;
     height: 80px;
     cursor: pointer;
+    position: absolute; /* Allow absolute positioning */
 }
 
 .item.dragging {

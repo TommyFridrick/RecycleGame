@@ -1,25 +1,66 @@
 // Get all the draggable items
 const items = document.querySelectorAll('.item');
 
-// Get all the bins
-const bins = document.querySelectorAll('.bin');
+// Set the boundaries for random placement, leaving room for bins and header
+const containerWidth = window.innerWidth;
+const containerHeight = window.innerHeight - 300; // Adjust to account for bins and header
+const itemWidth = 80; // Item dimensions from CSS
+const itemHeight = 80; 
 
-// Initialize points
-let points = 0;
+// Store positions to avoid overlaps
+let placedItems = [];
 
-// Add drag and drop event listeners to items
+// Scatter items randomly on load
+function scatterItems() {
+    items.forEach(item => {
+        let position;
+        let overlapping;
+
+        do {
+            // Generate random X and Y positions within the allowed range
+            const randomX = Math.floor(Math.random() * (containerWidth - itemWidth));
+            const randomY = Math.floor(Math.random() * (containerHeight - itemHeight));
+            
+            position = { x: randomX, y: randomY };
+            overlapping = checkOverlap(position); // Check for overlap with previous items
+        } while (overlapping);
+
+        // Position items using absolute positioning
+        item.style.position = 'absolute';
+        item.style.left = `${position.x}px`;
+        item.style.top = `${position.y}px`;
+
+        // Save the position to avoid future overlaps
+        placedItems.push(position);
+    });
+}
+
+// Check if a new position overlaps with existing items
+function checkOverlap(newPosition) {
+    for (let i = 0; i < placedItems.length; i++) {
+        const existingPosition = placedItems[i];
+        const overlapX = newPosition.x < existingPosition.x + itemWidth && newPosition.x + itemWidth > existingPosition.x;
+        const overlapY = newPosition.y < existingPosition.y + itemHeight && newPosition.y + itemHeight > existingPosition.y;
+        
+        if (overlapX && overlapY) {
+            return true; // Found an overlap
+        }
+    }
+    return false; // No overlap
+}
+
+// Drag and drop functionality
 items.forEach(item => {
     item.addEventListener('dragstart', dragStart);
     item.addEventListener('dragend', dragEnd);
 });
 
-// Add drag event listeners to bins
+const bins = document.querySelectorAll('.bin');
 bins.forEach(bin => {
     bin.addEventListener('dragover', dragOver);
     bin.addEventListener('drop', dropItem);
 });
 
-// Drag functions
 function dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.id);
     e.target.classList.add('dragging');
@@ -41,16 +82,11 @@ function dropItem(e) {
     if (validateDrop(draggedItem, e.target)) {
         e.target.appendChild(draggedItem);
         alert("Correct! " + draggedItem.alt + " goes in the " + e.target.alt + ".");
-        
-        // Increment points for correct drop
-        points++;
-        updatePointsDisplay();
     } else {
         alert("Incorrect! Try again.");
     }
 }
 
-// Function to check if the item matches the bin
 function validateDrop(item, bin) {
     if (bin.id === 'recycling-bin' && (item.id === 'water-bottle' || item.id === 'tin-can')) {
         return true;
@@ -62,8 +98,5 @@ function validateDrop(item, bin) {
     return false;
 }
 
-// Function to update the points display
-function updatePointsDisplay() {
-    const pointsDisplay = document.getElementById('points-display');
-    pointsDisplay.innerText = `Points: ${points}`;
-}
+// Ensure items are scattered after the page loads
+window.onload = scatterItems;

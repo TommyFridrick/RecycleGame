@@ -7,7 +7,7 @@ body {
     background-size: cover;      /* Scale the image to cover the entire background */
     background-position: center; /* Center the image on the screen */
     background-repeat: no-repeat;/* Prevent the image from repeating */
-    background-attachment: fixed;/* Fix the background so it doesn't scroll with the page */
+    background-attachment: null;/* Fix the background so it doesn't scroll with the page */
     text-align: center;
     padding: 20px;
 
@@ -15,12 +15,21 @@ body {
 
 /* Styling the title and description */
 h1 {
-    color: #000000;
+    color: #2784a0;
+    font-family: 'Chewy', 'Times New Roman', Times, serif;
+    text-shadow: 
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+    font-size: 45px;
+
 }
 
 p {
     font-size: 20px;
-    color: #333;
+    font-weight: bold;
+    color: #1a6d49;
 }
 
 /* Bin container to center the bins horizontally */

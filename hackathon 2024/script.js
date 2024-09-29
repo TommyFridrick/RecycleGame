@@ -96,11 +96,11 @@ function dropItem(e) {
 }
 
 function validateDrop(item, bin) {
-    if (bin.id === 'recycling-bin' && (item.id === 'water-bottle' || item.id === 'tin-can')) {
+    if (bin.id === 'recycling-bin' && (item.id === 'water-bottle' || item.id === 'tin-can' || item.id === 'cardboard-box')) {
         return true;
-    } else if (bin.id === 'garbage-bin' && (item.id === 'chip-bag' || item.id === 'plastic-straw')) {
+    } else if (bin.id === 'garbage-bin' && (item.id === 'chip-bag' || item.id === 'plastic-straw' || item.id === 'teddy-bear' || item.id === 'styrofoam-cup')) {
         return true;
-    } else if (bin.id === 'compost-bin' && (item.id === 'banana-peel' || item.id === 'apple-core')) {
+    } else if (bin.id === 'compost-bin' && (item.id === 'banana-peel' || item.id === 'apple-core' || item.id === 'eggshell')) {
         return true;
     }
     return false;

@@ -10,6 +10,10 @@ const itemHeight = 80;
 // Store positions to avoid overlaps
 let placedItems = [];
 
+// Initialize points
+let points = 0;
+const pointsDisplay = document.getElementById('points-display');
+
 // Scatter items randomly on load
 function scatterItems() {
     items.forEach(item => {
@@ -82,6 +86,10 @@ function dropItem(e) {
     if (validateDrop(draggedItem, e.target)) {
         e.target.appendChild(draggedItem);
         alert("Correct! " + draggedItem.alt + " goes in the " + e.target.alt + ".");
+
+        // Increment points and update display
+        points += 10;
+        updatePointsDisplay();
     } else {
         alert("Incorrect! Try again.");
     }
@@ -96,6 +104,11 @@ function validateDrop(item, bin) {
         return true;
     }
     return false;
+}
+
+// Update points display
+function updatePointsDisplay() {
+    pointsDisplay.textContent = `Points: ${points}`;
 }
 
 // Ensure items are scattered after the page loads

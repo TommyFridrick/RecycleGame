@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jacquarda Bastarda 9&display=swap" rel="stylesheet">
+    <title>Game Start Page</title>
+    <style>
+        
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set the body to cover full height */
+        body, html {
+            background-image: url('../images/park-backround-img.jpg'); /* Path to your image */
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background setup */
+        .start-page {
+            background-image: url('park-background.jpg'); /* Replace with the path to your park image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: top;
+            align-items: center;
+            flex-direction: column;
+            color: rgb(21, 112, 36);
+            text-align: center;
+        }
+
+        /* Text styles */
+        h1 {
+            font-size: 3em;
+            margin-top: 150px;
+            margin-bottom: 60px;
+            font-weight: bold;
+            font-family: 'Chewy', 'Times New Roman', Times, serif;
+            font-size: 65px;
+            color: #5aaaff;
+            text-shadow: 
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+        }
+
+        p {
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace, Times, 'Times New Roman', serif;
+            margin-bottom: 40px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        /* Start button styling */
+        .start-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none; /* To remove the underline for anchor */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for the button */
+        .start-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .content {
+        font-family: Courier, monospace;
+        color: black;
+        /*background-color: rgb(255, 255, 255);*/
+        border: none;
+        
+        bottom: 0px; /* Moves it to 20px above the bottom of the page */
+        left: 0;
+        right: 0;
+        margin-left: 70px;  /* Adjust the left margin */
+        margin-right: 70px; /* Adjust the right margin */
+        margin-top: 150px;
+        box-shadow: none;
+        }
+
+
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- Start Page Content -->
+    <div class="start-page">
+        <h1>Welcome to the Recycling Game</h1>
+        
+        <!-- Start button linking to your actual game page (index.html) -->
+        <a href="index.html" class="start-button">Start Game</a>
+        <p class="content"><p>Game Rules: 
+
+            Only recycle items that can be turned into new products.
+            
+            Compost is for organic waste that can break down naturally.
+            
+            Items that cannot be recycled or composted should go in the trash.
+            
+            Let’s have fun while learning how to take care of our planet!<p>
+    </div>
+
+    
+
+</body>
+</html>
